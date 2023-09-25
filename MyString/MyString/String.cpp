@@ -15,8 +15,16 @@ String::String(size_t size) {
 	CountStr++;
 }
 
-String::String(const char* str, size_t size) : String(size) {
+String::String(const char* str) : String(strlen(str)) {
 	this->str = _strdup(str);
+}
+
+String::String(const String& OtherString) {
+	if (OtherString.str) {
+		str = new char[strlen(OtherString.str)];
+		str = _strdup(OtherString.str);
+		CountStr++;
+	}
 }
 
 String::~String() {
@@ -38,9 +46,17 @@ size_t String::GetCountStr() {
 
 void String::EnterStr() {
 	cout << "Enter str: ";
-	cin.getline(str, TEXTSIZE);
+	cin.getline(str, strlen(str));
 }
 
 void String::Show() const{
-	cout << str;
+	cout << str << endl;
+}
+
+String& String::operator=(const String& OtherString) noexcept {
+	if (this != &OtherString) {
+		delete[] str;
+		str = _strdup(OtherString.str);
+	}
+	return *this;
 }

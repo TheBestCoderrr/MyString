@@ -7,7 +7,8 @@ private:
 public:
 	String();
 	String(size_t size);
-	String(const char* str, size_t size);
+	String(const char* str);
+	String(const String& OtherString);
 	~String();
 
 	void SetStr(char* str);
@@ -17,4 +18,6 @@ public:
 
 	void EnterStr();
 	void Show() const;
+
+	String& operator=(const String& OtherString) noexcept;
 };
