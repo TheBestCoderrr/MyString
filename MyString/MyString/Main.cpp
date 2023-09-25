@@ -9,7 +9,9 @@ int main() {
 		String A;
 		A.EnterStr();
 		A.Show();
+		cout << "Count str = " << String::GetCountStr() << endl;
 	}
+	cout << "Count str = " << String::GetCountStr() << endl;
 
 	String B(TEXTSIZE);
 	B.EnterStr();
@@ -23,4 +25,6 @@ int main() {
 
 	String E = D;
 	E.Show();
+
+	cout << "Count str = " << String::GetCountStr() << endl;
 }
