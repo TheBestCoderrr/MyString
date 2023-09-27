@@ -15,13 +15,13 @@ String::String(size_t size) {
 	CountStr++;
 }
 
-String::String(const char* str) : String(strlen(str)) {
+String::String(const char* str) {
 	this->str = _strdup(str);
+	CountStr++;
 }
 
 String::String(const String& OtherString) {
 	if (OtherString.str) {
-		str = new char[strlen(OtherString.str)];
 		str = _strdup(OtherString.str);
 		CountStr++;
 	}
@@ -33,6 +33,7 @@ String::~String() {
 }
 
 void String::SetStr(char* str) {
+	delete[] this->str;
 	this->str = _strdup(str);
 }
 

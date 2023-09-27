@@ -25,6 +25,5 @@ int main() {
 
 	String E = D;
 	E.Show();
-
 	cout << "Count str = " << String::GetCountStr() << endl;
 }
