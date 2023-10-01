@@ -26,4 +26,8 @@ int main() {
 	String E = D;
 	E.Show();
 	cout << "Count str = " << String::GetCountStr() << endl;
+
+	String F("sdqcg"), G("rgfas34"), result;
+	result = F * G;
+	result.Show();
 }

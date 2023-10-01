@@ -61,3 +61,18 @@ String& String::operator=(const String& OtherString) noexcept {
 	}
 	return *this;
 }
+
+String String::operator*(const String& OtherString) noexcept {
+	String result;
+	int n = 0;
+	for (int i = 0; i < (strlen(str) <= strlen(OtherString.str)? strlen(str) : strlen(OtherString.str)); i++) {
+		for (int j = 0; j < (strlen(str) > strlen(OtherString.str) ? strlen(str) : strlen(OtherString.str)); j++) {
+			if (str[i] == OtherString.str[j]) {
+				result.str[n++] = str[i];
+				break;
+			}
+		}
+	}
+	result.str[n] = '\0';
+	return result;
+}
